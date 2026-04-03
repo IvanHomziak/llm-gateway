@@ -103,9 +103,7 @@ class OpenAIProvider:
             usage=self._extract_usage(response),
         )
 
-    async def summarize(
-        self, request: ProviderSummarizeRequest
-    ) -> ProviderStructuredResult:
+    async def summarize(self, request: ProviderSummarizeRequest) -> ProviderStructuredResult:
         input_messages = self._build_input_messages(
             [
                 ("system", request.instructions),
