@@ -18,7 +18,7 @@ class ChatMessage(BaseModel):
 class ChatRequest(BaseModel):
     messages: list[ChatMessage] = Field(min_length=1, max_length=8000)
     temperature: float | None = Field(default=None, ge=0, le=2)
-    max_output_tokens: int | None = Field(default=None, ge=0, le=4096)
+    max_output_tokens: int | None = Field(default=None, ge=1, le=4096)
     metadata: dict[str, str] | None = None
 
 
