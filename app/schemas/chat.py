@@ -15,7 +15,7 @@ class ChatMessage(BaseModel):
         return trimmed
 
 class ChatRequest(BaseModel):
-    message: list[ChatMessage] = Field(min_length=1, max_length=8000)
+    messages: list[ChatMessage] = Field(min_length=1, max_length=8000)
     temperature: float = Field(default=None, ge=0, le=2)
     max_output_tokens: int = Field(default=None, ge=0, le=4096)
     metadata: dict[str, str] | None = None

@@ -7,7 +7,7 @@ from app.schemas.health import HealthResponse
 
 router = APIRouter(prefix="/health", tags=["Health"])
 
-@router.get("/", tags=["Health"], response_model=HealthResponse, status_code=200)
+@router.get("/", response_model=HealthResponse, status_code=200)
 async def health(settings: Settings = Depends(get_settings)) -> HealthResponse:
     model = HealthResponse(
         status="ok",
