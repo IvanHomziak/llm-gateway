@@ -32,5 +32,5 @@ class ChatResponse(BaseModel):
     content: str
     model: str
     provider: str
-    request_id: str | None
-    usage: UsageInfo | None
+    request_id: str | None = None
+    usage: UsageInfo | None = None
