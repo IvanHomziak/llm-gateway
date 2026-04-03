@@ -14,23 +14,23 @@ class ChatMessage(BaseModel):
             raise ValueError("Content must not be blank or whitespace only.")
         return trimmed
 
+
 class ChatRequest(BaseModel):
     messages: list[ChatMessage] = Field(min_length=1, max_length=8000)
-    temperature: float = Field(default=None, ge=0, le=2)
-    max_output_tokens: int = Field(default=None, ge=0, le=4096)
+    temperature: float | None = Field(default=None, ge=0, le=2)
+    max_output_tokens: int | None = Field(default=None, ge=0, le=4096)
     metadata: dict[str, str] | None = None
 
+
 class UsageInfo(BaseModel):
-    input_tokens: int = None
-    output_tokens: int = None
-    total_tokens: int = None
+    input_tokens: int | None = None
+    output_tokens: int | None = None
+    total_tokens: int | None = None
+
 
 class ChatResponse(BaseModel):
     content: str
     model: str
     provider: str
-    request_id: str
-    usage: UsageInfo
-
-
-
+    request_id: str | None
+    usage: UsageInfo | None

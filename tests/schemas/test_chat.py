@@ -29,3 +29,4 @@ def test_chat_request_fails_when_content_blank() -> None:
 def test_chat_message_trims_content() -> None:
     message = ChatMessage(role="user", content="   Hello  world ")
     assert message.content == "Hello  world"
+
